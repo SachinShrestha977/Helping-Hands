@@ -1,0 +1,14 @@
+nav => 
+home
+create job
+my jobs -> list only
+notifications
+profile
+
+
+freelancer nav =>
+home 
+my bids
+notifications
+upload resume(profile)
+search jobs
