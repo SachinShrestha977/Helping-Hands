@@ -11,4 +11,4 @@ home
 my bids
 notifications
 upload resume(profile)
-search jobs
+search job
