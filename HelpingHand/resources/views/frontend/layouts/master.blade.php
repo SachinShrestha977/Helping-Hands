@@ -13,7 +13,8 @@
 
         <!-- Custom CSS -->
         <link href="{{ asset('frontend/assets/css/styles.css')}}" rel="stylesheet">
-        <link rel="shortcut icon" href="{{ asset('frontend/assets/img/logo_black.png')}}" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('frontend/assets/img/logo_black.png') }}" type="image/x-icon">
     </head>
 	
     <body class="blue-skin">
@@ -31,73 +32,8 @@
             <!-- Top header  -->
             <!-- ============================================================== -->
             <!-- Start Navigation -->
-			<div class="header header-transparent dark-text">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-sm-12">
-							<nav id="navigation" class="navigation navigation-landscape">
-								<div class="nav-header">
-									<a class="nav-brand" href="#">
-										<img src="../assets/img/logo_black.png" class="logo" alt="" />
-									</a>
-									<div class="nav-toggle"></div>
-								</div>
-								<div class="nav-menus-wrapper">
-									<ul class="nav-menu">
-									
-										<li class="active"><a href="#">Home<span class="submenu-indicator"></span></a>
-										</li>
-										
-										<li><a href="#">Explore<span class="submenu-indicator"></span></a>
-											<ul class="nav-dropdown nav-submenu">
-									
-												<li><a href="#">Freelancers<span class="submenu-indicator"></span></a>
-													<ul class="nav-dropdown nav-submenu">
-														<li><a href="../pages/freelancer/search-freelancers.html">Search Freelancers</a></li>                                    
-													</ul>
-												</li>
-												
-												<li><a href="#">Employers<span class="submenu-indicator"></span></a>
-													<ul class="nav-dropdown nav-submenu">
-														<li><a href="../pages/employer/search-employers.html">Search Employers</a></li>                                    
-													</ul>
-												</li>
-												
-											</ul>
-										</li>
-										
-										<li><a href="dashboard.html">Dashboard</a></li>
-										
-										<li><a href="#">Pages<span class="submenu-indicator"></span></a>
-											<ul class="nav-dropdown nav-submenu">
-												<li><a href="about-us.html">About Us</a></li> 
-												<li><a href="pricing.html">Pricing</a></li>
-												<li><a href="contact.html">Contact Us</a></li>
-												<li><a href="faq.html">FAQ's</a></li>
-											</ul>
-										</li>
-										
-									</ul>
-									
-									<ul class="nav-menu nav-menu-social align-to-right">
-										
-										<li>
-											<a href="javascript:void(0);" data-toggle="modal" data-target="#upload-resume">
-												<i class="fa fa-upload mr-1"></i>Upload Resume
-											</a>
-										</li>
-										<li class="add-listing dark-bg">
-											<a href="#" data-toggle="modal" data-target="#login">
-												 <i class="ti-user mr-1"></i> Sign in
-											</a>
-										</li>
-									</ul>
-								</div>
-							</nav>
-						</div>
-					</div>
-				</div>
-			</div>
+            @include('frontend.layouts.header')
+			
 			<!-- End Navigation -->
 			<div class="clearfix"></div>
 			<!-- ============================================================== -->
@@ -106,7 +42,7 @@
 			
 			
 			<!-- ============================ Hero Banner  Start================================== -->
-			<div class="hero-banner full jumbo-banner" style="background:#f4f9fd url(assets/img/bg2.png);">
+			<div class="hero-banner full jumbo-banner" style="background:#f4f9fd url(frontend/assets/img/bg2.png);">
 				<div class="container">
 					<div class="row align-items-center">	
 					
@@ -149,7 +85,7 @@
 						</div>
 						
 						<div class="col-lg-5 col-md-4">
-							<img src="../assets/img/a-2.png" alt="latest property" class="img-fluid">
+							<img src="{{ asset('frontend/assets/img/a-2.png') }}" alt="latest property" class="img-fluid">
 						</div>
 					
 					</div>
@@ -175,13 +111,13 @@
 						<!-- Single Item -->
 						<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
 							<div class="job_grid_02">
-								<img src="../assets/img/job-featured.png" class="_featured_jbs" alt="">
+								<img src="{{ asset('frontend/assets/img/job-featured.png')}}" class="_featured_jbs" alt="">
 								<div class="jobs-like">
 									<label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label>
 								</div>
 								<div class="jb_types fulltime">Full Time</div>
 								<div class="jb_grid_01_thumb">
-									<a href="employer-detail.html"><img src="../assets/img/carpenter.png" class="img-fluid" alt=""></a>
+									<a href="employer-detail.html"><img src="{{ asset('frontend/assets/img/carpenter.png')}}" class="img-fluid" alt=""></a>
 								</div>
 								<div class="jb_grid_01_caption">
 									<h4 class="_jb_title"><a href="job-detail.html">Carpenter</a></h4>
@@ -201,7 +137,7 @@
 								</div>
 								<div class="jb_types parttime">Part Time</div>
 								<div class="jb_grid_01_thumb">
-									<a href="employer-detail.html"><img src="../assets/img/plumber.png" class="img-fluid" alt=""></a>
+									<a href="employer-detail.html"><img src="{{ asset('frontend/assets/img/plumber.png')}}" class="img-fluid" alt=""></a>
 								</div>
 								<div class="jb_grid_01_caption">
 									<h4 class="_jb_title"><a href="job-detail.html">Plumber</a></h4>
@@ -221,7 +157,7 @@
 								</div>
 								<div class="jb_types parttime">Part Time</div>
 								<div class="jb_grid_01_thumb">
-									<a href="employer-detail.html"><img src="../assets/img/electrician.png" class="img-fluid" alt=""></a>
+									<a href="employer-detail.html"><img src="{{ asset('frontend/assets/img/electrician.png')}}" class="img-fluid" alt=""></a>
 								</div>
 								<div class="jb_grid_01_caption">
 									<h4 class="_jb_title"><a href="job-detail.html">Electrician</a></h4>
@@ -236,13 +172,13 @@
 						<!-- Single Item -->
 						<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
 							<div class="job_grid_02">
-								<img src="../assets/img/job-featured.png" class="_featured_jbs" alt="">
+								<img src="{{ asset('frontend/assets/img/job-featured.png')}}" class="_featured_jbs" alt="">
 								<div class="jobs-like">
 									<label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label>
 								</div>
 								<div class="jb_types fulltime">Full Time</div>
 								<div class="jb_grid_01_thumb">
-									<a href="employer-detail.html"><img src="../assets/img/int_desinger.png" class="img-fluid" alt=""></a>
+									<a href="employer-detail.html"><img src="{{ asset('frontend/assets/img/int_desinger.png')}}" class="img-fluid" alt=""></a>
 								</div>
 								<div class="jb_grid_01_caption">
 									<h4 class="_jb_title"><a href="job-detail.html">Interior Designer</a></h4>
@@ -262,7 +198,7 @@
 								</div>
 								<div class="jb_types contract">Contract</div>
 								<div class="jb_grid_01_thumb">
-									<a href="employer-detail.html"><img src="../assets/img/plasterer.png" class="img-fluid" alt=""></a>
+									<a href="employer-detail.html"><img src="{{ asset('frontend/assets/img/plasterer.png')}}" class="img-fluid" alt=""></a>
 								</div>
 								<div class="jb_grid_01_caption">
 									<h4 class="_jb_title"><a href="job-detail.html">Plasterer</a></h4>
@@ -282,7 +218,7 @@
 								</div>
 								<div class="jb_types contract">Contract</div>
 								<div class="jb_grid_01_thumb">
-									<a href="employer-detail.html"><img src="../assets/img/painter.jpg" class="img-fluid" alt=""></a>
+									<a href="employer-detail.html"><img src="{{ asset('frontend/assets/img/painter.jpg')}}" class="img-fluid" alt=""></a>
 								</div>
 								<div class="jb_grid_01_caption">
 									<h4 class="_jb_title"><a href="job-detail.html">Painter</a></h4>
@@ -302,7 +238,7 @@
 								</div>
 								<div class="jb_types contract">Contract</div>
 								<div class="jb_grid_01_thumb">
-									<a href="employer-detail.html"><img src="../assets/img/tile_setter.png" class="img-fluid" alt=""></a>
+									<a href="employer-detail.html"><img src="{{ asset('frontend/assets/img/tile_setter.png')}}" class="img-fluid" alt=""></a>
 								</div>
 								<div class="jb_grid_01_caption">
 									<h4 class="_jb_title"><a href="job-detail.html">Tile Setter</a></h4>
@@ -317,13 +253,13 @@
 						<!-- Single Item -->
 						<div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
 							<div class="job_grid_02">
-								<img src="../assets/img/job-featured.png" class="_featured_jbs" alt="">
+								<img src="{{ asset('frontend/assets/img/job-featured.png')}}" class="_featured_jbs" alt="">
 								<div class="jobs-like">
 									<label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label>
 								</div>
 								<div class="jb_types parttime">Part Time</div>
 								<div class="jb_grid_01_thumb">
-									<a href="employer-detail.html"><img src="../assets/img/carpet.png" class="img-fluid" alt=""></a>
+									<a href="employer-detail.html"><img src="{{ asset('frontend/assets/img/carpet.png')}}" class="img-fluid" alt=""></a>
 								</div>
 								<div class="jb_grid_01_caption">
 									<h4 class="_jb_title"><a href="job-detail.html">Carpet Setter</a></h4>
@@ -492,8 +428,8 @@
 							<div class="_freelacers_120 large">
 								<div class="jobs-like"><label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label></div>
 								<div class="_freelacers_120_thumb">
-									<img src="../assets/img/verify.svg" class="verified" width="15" alt="">
-									<a href="freelancer-detail.html"><img src="../assets/img/team-1.jpg" class="img-fluid circle" alt=""></a>
+									<img src="{{ asset('frontend/assets/img/verify.svg')}}" class="verified" width="15" alt="">
+									<a href="freelancer-detail.html"><img src="{{ asset('frontend/assets/img/team-1.jpg')}}" class="img-fluid circle" alt=""></a>
 								</div>
 								<div class="_freelacers_120_caption">
 									<div class="_freelan_laft"><i class="ti-location-pin mr-1"></i>Allahabad, UP</div>
@@ -523,8 +459,8 @@
 							<div class="_freelacers_120 large">
 								<div class="jobs-like"><label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label></div>
 								<div class="_freelacers_120_thumb">
-									<img src="../assets/img/verify.svg" class="verified" width="15" alt="">
-									<a href="freelancer-detail.html"><img src="../assets/img/author.png" class="img-fluid circle" alt=""></a>
+									<img src="{{ asset('frontend/assets/img/verify.svg')}}" class="verified" width="15" alt="">
+									<a href="freelancer-detail.html"><img src="{{ asset('frontend/assets/img/author.png')}}" class="img-fluid circle" alt=""></a>
 								</div>
 								<div class="_freelacers_120_caption">
 									<div class="_freelan_laft"><i class="ti-location-pin mr-1"></i>Lucknow, UP</div>
@@ -554,8 +490,8 @@
 							<div class="_freelacers_120 large">
 								<div class="jobs-like"><label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label></div>
 								<div class="_freelacers_120_thumb">
-									<img src="../assets/img/verify.svg" class="verified" width="15" alt="">
-									<a href="freelancer-detail.html"><img src="../assets/img/team-2.jpg" class="img-fluid circle" alt=""></a>
+									<img src="{{ asset('frontend/assets/img/verify.svg')}}" class="verified" width="15" alt="">
+									<a href="freelancer-detail.html"><img src="{{ asset('frontend/assets/img/team-2.jpg')}}" class="img-fluid circle" alt=""></a>
 								</div>
 								<div class="_freelacers_120_caption">
 									<div class="_freelan_laft"><i class="ti-location-pin mr-1"></i>London, UK</div>
@@ -585,8 +521,8 @@
 							<div class="_freelacers_120 large">
 								<div class="jobs-like"><label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label></div>
 								<div class="_freelacers_120_thumb">
-									<img src="../assets/img/verify.svg" class="verified" width="15" alt="">
-									<a href="freelancer-detail.html"><img src="../assets/img/team-3.jpg" class="img-fluid circle" alt=""></a>
+									<img src="{{ asset('frontend/assets/img/verify.svg')}}" class="verified" width="15" alt="">
+									<a href="freelancer-detail.html"><img src="{{ asset('frontend/assets/img/team-3.jpg')}}" class="img-fluid circle" alt=""></a>
 								</div>
 								<div class="_freelacers_120_caption">
 									<div class="_freelan_laft"><i class="ti-location-pin mr-1"></i>Montral, Canada</div>
@@ -616,8 +552,8 @@
 							<div class="_freelacers_120 large">
 								<div class="jobs-like"><label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label></div>
 								<div class="_freelacers_120_thumb">
-									<img src="../assets/img/verify.svg" class="verified" width="15" alt="">
-									<a href="freelancer-detail.html"><img src="../assets/img/team-4.jpg" class="img-fluid circle" alt=""></a>
+									<img src="{{ asset('frontend/assets/img/verify.svg')}}" class="verified" width="15" alt="">
+									<a href="freelancer-detail.html"><img src="{{ asset('frontend/assets/img/team-4.jpg')}}" class="img-fluid circle" alt=""></a>
 								</div>
 								<div class="_freelacers_120_caption">
 									<div class="_freelan_laft"><i class="ti-location-pin mr-1"></i>Canada, USA</div>
@@ -647,8 +583,8 @@
 							<div class="_freelacers_120 large">
 								<div class="jobs-like"><label class="toggler toggler-danger"><input type="checkbox"><i class="fa fa-heart"></i></label></div>
 								<div class="_freelacers_120_thumb">
-									<img src="../assets/img/verify.svg" class="verified" width="15" alt="">
-									<a href="freelancer-detail.html"><img src="../assets/img/team-5.jpg" class="img-fluid circle" alt=""></a>
+									<img src="{{ asset('frontend/assets/img/verify.svg')}}" class="verified" width="15" alt="">
+									<a href="freelancer-detail.html"><img src="{{ asset('frontend/assets/img/team-5.jpg')}}" class="img-fluid circle" alt=""></a>
 								</div>
 								<div class="_freelacers_120_caption">
 									<div class="_freelan_laft"><i class="ti-location-pin mr-1"></i>Liverpool, UK</div>
@@ -700,7 +636,7 @@
 									<div class="smart-tes-author">
 										<div class="st-author-box">
 											<div class="st-author-thumb">
-												<img src="../assets/img/team-1.jpg" class="img-fluid" alt="" />
+												<img src="{{ asset('frontend/assets/img/team-1.jpg')}}" class="img-fluid" alt="" />
 											</div>
 											<div class="st-author-info">
 												<h4 class="st-author-title">Adam Williams</h4>
@@ -718,7 +654,7 @@
 									<div class="smart-tes-author">
 										<div class="st-author-box">
 											<div class="st-author-thumb">
-												<img src="../assets/img/team-2.jpg" class="img-fluid" alt="" />
+												<img src="{{ asset('frontend/assets/img/team-2.jpg')}}" class="img-fluid" alt="" />
 											</div>
 											<div class="st-author-info">
 												<h4 class="st-author-title">Lilly Wikdoner</h4>
@@ -736,7 +672,7 @@
 									<div class="smart-tes-author">
 										<div class="st-author-box">
 											<div class="st-author-thumb">
-												<img src="../assets/img/team-3.jpg" class="img-fluid" alt="" />
+												<img src="{{ asset('frontend/assets/img/team-3.jpg')}}" class="img-fluid" alt="" />
 											</div>
 											<div class="st-author-info">
 												<h4 class="st-author-title">Shaurya Williams</h4>
@@ -754,7 +690,7 @@
 									<div class="smart-tes-author">
 										<div class="st-author-box">
 											<div class="st-author-thumb">
-												<img src="../assets/img/team-4.jpg" class="img-fluid" alt="" />
+												<img src="{{ asset('frontend/assets/img/team-4.jpg')}}" class="img-fluid" alt="" />
 											</div>
 											<div class="st-author-info">
 												<h4 class="st-author-title">Shrithi Setthi</h4>
@@ -795,7 +731,7 @@
 							<div class="blog-wrap-grid">
 								
 								<div class="blog-thumb">
-									<a href="blog-detail.html"><img src="../assets/img/b-1.jpg" class="img-fluid" alt=""></a>
+									<a href="blog-detail.html"><img src="{{ asset('frontend/assets/img/b-1.jpg')}}" class="img-fluid" alt=""></a>
 								</div>
 								
 								<div class="blog-info">
@@ -822,7 +758,7 @@
 							<div class="blog-wrap-grid">
 								
 								<div class="blog-thumb">
-									<a href="blog-detail.html"><img src="../assets/img/b-2.jpg" class="img-fluid" alt=""></a>
+									<a href="blog-detail.html"><img src="{{ asset('frontend/assets/img/b-2.jpg')}}" class="img-fluid" alt=""></a>
 								</div>
 								
 								<div class="blog-info">
@@ -849,7 +785,7 @@
 							<div class="blog-wrap-grid">
 								
 								<div class="blog-thumb">
-									<a href="blog-detail.html"><img src="../assets/img/b-3.jpg" class="img-fluid" alt=""></a>
+									<a href="blog-detail.html"><img src="{{ asset('frontend/assets/img/b-3.jpg')}}" class="img-fluid" alt=""></a>
 								</div>
 								
 								<div class="blog-info">
@@ -995,18 +931,7 @@
 
         @include('frontend.layouts.scripts')
         		<!-- ============================================================== -->
-		<!-- All Jquery -->
-		<!-- ============================================================== -->
-		<script src="{{ asset('frontend/assets/js/jquery.min.js')}}"></script>
-		<script src="{{ asset('frontend/assets/js/popper.min.js')}}"></script>
-		<script src="{{ asset('frontend/assets/js/bootstrap.min.js')}}"></script>
-		<script src="{{ asset('frontend/assets/js/select2.min.js')}}"></script>
-		<script src="{{ asset('frontend/assets/js/owl.carousel.min.js')}}"></script>
-		<script src="{{ asset('frontend/assets/js/ion.rangeSlider.min.js')}}"></script>
-		<script src="{{ asset('frontend/assets/js/counterup.min.js')}}"></script>
-		<script src="{{ asset('frontend/assets/js/materialize.min.js')}}"></script>
-		<script src="{{ asset('frontend/assets/js/metisMenu.min.js')}}"></script>
-		<script src="{{ asset('frontend/assets/js/custom.js')}}"></script>
+
 		<!-- ============================================================== -->
 		<!-- This page plugins -->
 		<!-- ============================================================== -->
