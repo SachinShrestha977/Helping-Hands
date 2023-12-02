@@ -25,6 +25,7 @@ class HomeController extends Controller
     }
     public function index()
     {
+        if (Auth::check()) {        
         $client = EmployeeDetail::with(['images', 'subscription'])->orderby('expires_at', 'asc')->get();
         $now = Carbon::now();
         $client = $client->map(function ($item) use ($now) {
@@ -52,6 +53,7 @@ class HomeController extends Controller
         } elseif ($user->hasRole('StageUser')) {
             return $this->client_user_index();
         }
+    
 
 
         $job_list->each(function ($job) {
@@ -62,6 +64,10 @@ class HomeController extends Controller
             $job->stages = $stages;
         });
         return view('pages.index', compact('client', 'job_list'));
+    }else{
+        // dd('okay');
+        return view('frontend.layouts.master');
+    }
     }
     public function sub_user_index()
     {

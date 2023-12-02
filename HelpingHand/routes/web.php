@@ -37,9 +37,9 @@ Route::group([
 
     'middleware' => ['LoginCheck'],
     'namespace' => 'Admin',
+    'prefix'=>'admin'
 
 ], function () {
-    Route::get('/', [HomeController::class,'index'])->name('index');
     Route::post('/read_notification', [HomeController::class,'read_notification'])->name('read_notification');
 
     Route::group([
@@ -285,6 +285,7 @@ Route::group([
 });
 
 
+Route::get('/', [HomeController::class,'index'])->name('index');
 
 Route::get('/create/{id}', [CandidateController::class, 'create'])->name('candidates-add');
 Route::post('/create', [CandidateController::class, 'store'])->name('candidates-store');
