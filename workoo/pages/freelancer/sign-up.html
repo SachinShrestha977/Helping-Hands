@@ -1,119 +1,446 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>Candidate Registration Form</title> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Helping Hands</title>
+
+    <!-- All Plugins Css -->
+    <link href="../../assets/css/plugins.css" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
+    <link href="../../assets/css/styles.css" rel="stylesheet">
     <link rel="shortcut icon" href="../../assets/img/logo_black.png" type="image/x-icon">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* height: 100vh; */
-        }
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        input[type="checkbox"] {
-            margin-bottom: 8px;
-        }
-        button {
-            background-color: #2596be;
-            color: #fff;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease-in;
-        }
-        button:hover {
-            background-color: #0b7ba4;
-        }
-
-        .heading{
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
-<body>
 
-    
+<body class="blue-skin">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <!-- <div class="Loader"></div> -->
 
-    <form id="candidateForm">
-        <div class="heading">
-            <h2>Candidates Information</h2>
-            <span>Fill the form below to create new candidates</span>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+
+        <!-- ============================================================== -->
+        <!-- Top header  -->
+        <!-- ============================================================== -->
+        <!-- Start Navigation -->
+        <div class="header header-transparent dark-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <nav id="navigation" class="navigation navigation-landscape">
+                            <div class="nav-header">
+                                <a class="nav-brand" href="#">
+                                    <img src="../../assets/img/logo_black.png" class="logo" alt="" />
+                                </a>
+                                <div class="nav-toggle"></div>
+                            </div>
+                            <div class="nav-menus-wrapper">
+                                <ul class="nav-menu">
+
+                                    <li class="active"><a href="index.html">Home<span
+                                                class="submenu-indicator"></span></a>
+                                    </li>
+
+                                    <li><a href="#">Explore<span class="submenu-indicator"></span></a>
+                                        <ul class="nav-dropdown nav-submenu">
+
+                                            <li><a href="#">Freelancers<span class="submenu-indicator"></span></a>
+                                                <ul class="nav-dropdown nav-submenu">
+                                                    <li><a href="../../pages/freelancer/search-freelancers.html">Search
+                                                            Freelancers</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li><a href="#">Employers<span class="submenu-indicator"></span></a>
+                                                <ul class="nav-dropdown nav-submenu">
+                                                    <li><a href="../../pages/employer/search-employers.html">Search
+                                                            Employers</a></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <!-- <li><a href="dashboard.html">Dashboard</a></li> -->
+
+                                    <li><a href="#">Pages<span class="submenu-indicator"></span></a>
+                                        <ul class="nav-dropdown nav-submenu">
+                                            <li><a href="about-us.html">About Us</a></li>
+                                            <li><a href="pricing.html">Pricing</a></li>
+                                            <li><a href="../../pages/contact.html">Contact Us</a></li>
+                                            <li><a href="../../pages/faq.html">FAQ's</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="searchIndex.html">Search Jobs<span
+                                                class="submenu-indicator"></span></a>
+                                    </li>
+                                    <li><a href="index.html">My Bids<span class="submenu-indicator"></span></a>
+                                    </li>
+                                    <li><a href="index.html">Notifications<span class="submenu-indicator"></span></a>
+                                    </li>
+
+                                </ul>
+
+                                <ul class="nav-menu nav-menu-social align-to-right">
+
+                                    <li>
+                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#upload-resume">
+                                            <i class="fa fa-upload mr-1"></i>Upload Resume
+                                        </a>
+                                    </li>
+                                    <li class="add-listing dark-bg">
+                                        <a href="#" data-toggle="modal" data-target="#login">
+                                            <i class="ti-user mr-1"></i> Sign in
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- End Navigation -->
+        <div class="clearfix"></div>
+        <!-- ============================================================== -->
+        <!-- Top header  -->
+        <!-- ============================================================== -->
 
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required>
+        <!-- ============================ Hero Banner  Start================================== -->
+        <div class="hero-banner full jumbo-banner" style="background:#f4f9fd url(assets/img/bg2.png);">
+            <div class="container">
+                <div class="row align-items-center">
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required>
+                    <div class="col-lg-7 col-md-8">
+                      
+                     
 
-        <label for="employmentType">Type of Employment:</label>
-        <select id="employmentType" name="employmentType">
-            <option value="select">Select</option>
-            <option value="fullTime">Full Time</option>
-            <option value="partTime">Part Time</option>
-            <option value="contract">Contract</option>
-            <option value="freelance">Freelance</option>
-        </select>
+                        <form id="candidateForm" class="row">
+                            <div class="col-12">
+                                <h2>Candidates Information</h2>
+                                <span>Fill the form below to create new candidates</span>
+                            </div>
 
-        <label for="specialty">Area of Specialty:</label>
-        <input type="text" id="specialty" name="specialty" required>
+                            <div class="col-lg-6 col-md-12">
+								<div class="form-group">
+									<label>First Name</label>
+									<input type="text" class="form-control with-light"
+										placeholder="First name" />
+								</div>
+							</div>
+                            <div class="col-lg-6 col-md-12">
+								<div class="form-group">
+									<label>Last Name</label>
+									<input type="text" class="form-control with-light"
+										placeholder="Last Name" />
+								</div>
+							</div>
+                            <div class="col-lg-6 col-md-12">
+								<div class="form-group">
+									<label>Email Address</label>
+									<input type="email" class="form-control with-light"
+										placeholder="yourname@email.com" />
+								</div>
+							</div>
+                            <div class="col-lg-6 col-md-12">
+								<div class="form-group">
+									<label>Contact</label>
+									<input type="text" class="form-control with-light"
+										placeholder="Contact number" />
+								</div>
+							</div>
+                            <div class="col-lg-6 col-md-12">
+								<div class="form-group">
+									<label>Password</label>
+									<input type="password" class="form-control with-light"
+										placeholder="password" />
+								</div>
+							</div>
+                            <div class="col-lg-6 col-md-12">
+								<div class="form-group">
+									<label>Confirm Password</label>
+									<input type="password" class="form-control with-light"
+										placeholder="repeat password" />
+								</div>
+							</div>
+                            <div class="col-lg-6 col-md-12">
+								<div class="form-group">
+									<label>Skills</label>
+                                    <select class="form-control" name="employmentType">
+                                        <option value="select">Select</option>
+                                        <option value="fullTime">Full Time</option>
+                                        <option value="partTime">Part Time</option>
+                                        <option value="contract">Contract</option>
+                                    </select>
+								</div>
+							</div>
 
-        <label for="contact">Contact:</label>
-        <input type="text" id="contact" name="contact" required>
+                            <div class="col-lg-6 col-md-12">
+								<div class="form-group">
+									<label>Wage Rate</label>
+									<input type="text" class="form-control with-light"
+										placeholder="Rs1234/hr" />
+								</div>
+							</div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="upfile">
+                                        <label class="custom-file-label" for="upfile">Upload file</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <button type="button" class="btn dark-3">Create account</button>
+                                </div>
+                            </div>
+                        </form>
 
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    </div>
 
-        <label for="currentSalary">Current Salary:</label>
-        <input type="text" id="currentSalary" name="currentSalary">
+                    <div class="col-lg-5 col-md-4">
+                        <img src="../../assets/img/a-2.png" alt="latest property" class="img-fluid">
+                    </div>
 
-        <label for="expectedSalary">Expected Salary:</label>
-        <input type="text" id="expectedSalary" name="expectedSalary">
+                </div>
+            </div>
+        </div>
+        <!-- ============================ Hero Banner End ================================== -->
 
-        <label for="areaOfInterest">Area of Interest:</label>
-        <textarea id="areaOfInterest" name="areaOfInterest" rows="4"></textarea>
 
-        <label for="cv">Upload your CV:</label>
-        <input type="file" id="cv" name="cv" accept=".pdf, .doc, .docx">
 
-        <button type="submit">Create Candidate</button>
-    </form>
 
-    <!-- Add your JavaScript for form submission/validation if needed -->
+        <!-- =========================== Footer Start ========================================= -->
+        <footer class="dark-footer skin-dark-footer">
+            <div>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="footer-widget">
+                                <img src="../../assets/img/logo_white.png" class="img-fluid f-logo" width="120" alt="">
+                                <p>Kathmandu, Nepal</p>
+                                <ul class="footer-bottom-social">
+                                    <li><a href="#"><i class="ti-facebook"></i></a></li>
+                                    <li><a href="#"><i class="ti-twitter"></i></a></li>
+                                    <li><a href="#"><i class="ti-instagram"></i></a></li>
+                                    <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-4">
+                            <div class="footer-widget">
+                                <h4 class="widget-title">Useful links</h4>
+                                <ul class="footer-menu">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">FAQs Page</a></li>
+                                    <li><a href="#">Checkout</a></li>
+                                    <li><a href="#">Login</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                            <div class="footer-widget">
+                                <h4 class="widget-title">Developers</h4>
+                                <ul class="footer-menu">
+                                    <li><a href="#">Booking</a></li>
+                                    <li><a href="#">Stays</a></li>
+                                    <li><a href="#">Adventures</a></li>
+                                    <li><a href="#">Author Detail</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                            <div class="footer-widget">
+                                <h4 class="widget-title">Useful links</h4>
+                                <ul class="footer-menu">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Jobs</a></li>
+                                    <li><a href="#">Events</a></li>
+                                    <li><a href="#">Press</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-4">
+                            <div class="footer-widget">
+                                <h4 class="widget-title">Useful links</h4>
+                                <ul class="footer-menu">
+                                    <li><a href="#">Support</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Privacy &amp; Terms</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-12 col-md-12 text-center">
+                            <p class="mb-0">© 2023 Helping Hands. Designd By Samir, Sachin, Manish | All Rights Reserved
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- =========================== Footer End ========================================= -->
+
+        <!-- Log In Modal -->
+        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="registermodal"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+                <div class="modal-content" id="registermodal">
+                    <div class="modal-header">
+                        <h4>Sign In</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true"><i class="ti-close"></i></span></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="login-form">
+                            <form>
+
+                                <div class="form-group">
+                                    <label>User Name</label>
+                                    <input type="text" class="form-control" placeholder="Username">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="*******">
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn dark-2 btn-md full-width pop-login">Login</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <span>Or Signin with</span>
+                        </div>
+
+                        <div class="social_logs mb-4">
+                            <ul class="shares_jobs text-center">
+                                <li><a href="#" class="share fb"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="share gp"><i class="fa fa-google"></i></a></li>
+                                <li><a href="#" class="share ln"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="mf-link"><i class="ti-user"></i>Haven't An Account?<a href="javascript:void(0)"
+                                class="theme-cl"> Sign Up</a></div>
+                        <div class="mf-forget"><a href="#"><i class="ti-help"></i>Forget Password</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Modal -->
+
+        <!-- Upload Resume -->
+        <div class="modal fade" id="upload-resume" tabindex="-1" role="dialog" aria-labelledby="resumeupload"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered login-pop-form" role="document">
+                <div class="modal-content" id="resumeupload">
+                    <div class="modal-header">
+                        <h4>Upload Resume</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true"><i class="ti-close"></i></span></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="login-form">
+                            <form>
+
+                                <div class="form-row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>Full Name</label>
+                                            <input type="text" class="form-control" placeholder="Username">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>E-Mail ID</label>
+                                            <input type="email" class="form-control" placeholder="ucicl@gmail.com">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Paste Your Resume</label>
+                                    <textarea class="form-control ht-150" placeholder="Copy & Paste Resume"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="light">doc, docx,pdf,txt,png</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="uploadResume">
+                                        <label class="custom-file-label" for="uploadResume"><i
+                                                class="ti-link mr-1"></i>Upload Resume</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn dark-2 btn-md full-width pop-login">Upload
+                                        Resume</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Upload Resume -->
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../../assets/js/jquery.min.js"></script>
+    <script src="../../assets/js/popper.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/select2.min.js"></script>
+    <script src="../../assets/js/owl.carousel.min.js"></script>
+    <script src="../../assets/js/ion.rangeSlider.min.js"></script>
+    <script src="../../assets/js/counterup.min.js"></script>
+    <script src="../../assets/js/materialize.min.js"></script>
+    <script src="../../assets/js/metisMenu.min.js"></script>
+    <script src="../../assets/js/custom.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+
 </body>
+
 </html>
