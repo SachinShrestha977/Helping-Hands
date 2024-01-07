@@ -18,10 +18,10 @@
                             <li><a href="#" >Explore<span class="submenu-indicator"></span></a>
                                 <ul class="nav-dropdown">
                         
-                                    <li><a href="#">Freelancers</span></a>
-                                        <ul class="nav-dropdown nav-submenu">
+                                    <li><a href="#">Sign In Freelancers</span></a>
+                                        {{-- <ul class="nav-dropdown nav-submenu">
                                             <li><a href="#">Search Freelancers</a></li>                                    
-                                        </ul>
+                                        </ul> --}}
                                     </li>
                                     
                                     <li><a href="#">Employers<span class="submenu-indicator"></span></a>

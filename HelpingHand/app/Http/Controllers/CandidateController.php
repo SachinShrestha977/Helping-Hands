@@ -111,24 +111,7 @@ class CandidateController extends Controller
      */
     public function create(Request $request, $id)
     {
-        // dd('ok');
-        $hard_skill = Skill::where('competency', 'Hard Skill')->with('skill_category')->get();
-        $skill_category = $hard_skill->pluck('skill_category', 'id')->unique()->toArray();
-        // $skill_category = $hard_skill->flatMap(function ($skill) {
-        //     return $skill->skill_category;
-        // });
-        // dd($skill_category);
-
-        if ($request->hasValidSignature()) {
-
-            return view('pages.candidates.unauth_create', compact('id', 'hard_skill', 'skill_category'));
-        }
-        if (Auth::check()) {
-            $user = Auth::user();
-            return view('pages.candidates.create', compact('id', 'hard_skill', 'skill_category'));
-        } else {
-            abort(403);
-        }
+       return view('frontend.freelancer.create');
     }
 
     /**

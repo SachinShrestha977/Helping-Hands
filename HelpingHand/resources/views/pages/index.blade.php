@@ -28,7 +28,7 @@
         @endslot
     @endcomponent
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-lg-12">
             <div class="card m-2">
                 <div class="card-header">
@@ -94,7 +94,7 @@
                 </div><!--end card-body-->
             </div><!--end card-->
         </div>
-    </div>
+    </div> --}}
     @if ($auth_user->hasRole('SuperAdmin'))
         
         <div class="row">

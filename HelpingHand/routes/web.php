@@ -40,6 +40,7 @@ Route::group([
     'prefix'=>'admin'
 
 ], function () {
+    Route::get('/', [HomeController::class,'back_index'])->name('back_index');
     Route::post('/read_notification', [HomeController::class,'read_notification'])->name('read_notification');
 
     Route::group([
@@ -66,8 +67,7 @@ Route::group([
 
     ], function () {
         Route::get('/', [ClientController::class, 'index'])->name('client');
-        Route::get('/create', [ClientController::class, 'create'])->name('client-add');
-        Route::post('/create', [ClientController::class, 'store'])->name('client-store');
+
         Route::post('/update', [ClientController::class, 'update'])->name('client-update');
         Route::get('/{id}/edit', [ClientController::class, 'edit'])->name('client-edit');
         Route::post('/delete', [ClientController::class, 'delete'])->name('client-delete')->middleware('permission:Delete-Client');
@@ -285,22 +285,15 @@ Route::group([
 });
 
 
-Route::get('/', [HomeController::class,'index'])->name('index');
 
-Route::get('/create/{id}', [CandidateController::class, 'create'])->name('candidates-add');
-Route::post('/create', [CandidateController::class, 'store'])->name('candidates-store');
+
+
 Route::get('/interview/option/candidate/{user_id}/{candidate_id}', [InterviewController::class, 'interview_option_candidate'])->name('interview_option_candidate');
 Route::get('/interview/option/job_applicant/{job_applicant_id}', [InterviewController::class, 'interview_option_applicant'])->name('interview_option_applicant');
 Route::post('/interview/confirm/candidate', [InterviewController::class, 'interview_option_confirm'])->name('interview_option_confirm');
 Route::get('/test/mail', [CandidateController::class, 'test'])->name('test-mail');
 
-Route::get('panel_interview/{job_applicant_id}/confirm/{panel_id}/',[EvaluationController::class,'panel_interview_confirm'])->name('panel_interview_confirm');
-Route::post('panel_interview/',[EvaluationController::class,'panel_interview_confirm_post'])->name('panel_interview_confirm_post');
-Route::get('panel_scoring/{job_applicant_id}/{panel_id}/{expiration_date}',[EvaluationController::class,'panel_scoring_page'])->name('jobs-applicants-panel_scoring');
-Route::post('panel_scoring/submit',[EvaluationController::class,'panel_score_submit'])->name('jobs-applicants-panel_score_submit');
 
-Route::get('submit/casestudy/{job_applicant_id}/',[EvaluationController::class,'add_case_study'])->name('add_case_study');
-Route::post('submit/casestudy//',[EvaluationController::class,'store_case_study'])->name('store_case_study');
 
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -312,63 +305,13 @@ Route::get('/PermissionCreate', [AuthController::class, 'PermissionCreate'])->na
 Route::get('/assignRole', [AuthController::class, 'assignRole'])->name('assignRole');
 Route::post('/login', [AuthController::class, 'post_login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::get('/login', [AuthController::class, 'login'])->name('register');
+// Route::get('/login', [AuthController::class, 'login'])->name('register');
 
+include(base_path('routes/unauth.php'));
 include(base_path('routes/client.php'));
 
 
 
-
-
-
-Route::get('table/basic', function () {
-    return view('tables-basic');
-});
-Route::get('table/datatable', function () {
-    return view('tables-datatable');
-});
-Route::get('table/editable', function () {
-    return view('tables-editable');
-});
-Route::get('table/responsive', function () {
-    return view('tables-responsive');
-});
-Route::get('icon/fontawesome', function () {
-    return view('icons-fontawesome');
-});
-Route::get('icon/dripicons', function () {
-    return view('icons-dripicons');
-});
-Route::get('icon/materialdesign', function () {
-    return view('icons-materialdesign');
-});
-Route::get('icon/feather', function () {
-    return view('icons-feather');
-});
-Route::get('forms/advanced', function () {
-    return view('forms-advanced');
-});
-Route::get('forms/editors', function () {
-    return view('forms-editors');
-});
-Route::get('forms/elements', function () {
-    return view('forms-elements');
-});
-Route::get('forms/repeater', function () {
-    return view('forms-repeater');
-});
-Route::get('forms/uploads', function () {
-    return view('forms-uploads');
-});
-Route::get('forms/validation', function () {
-    return view('forms-validation');
-});
-Route::get('forms/x', function () {
-    return view('forms-x-editable');
-});
-Route::get('sweetalert', function () {
-    return view('advanced-sweetalerts');
-});
 
 Route::get('/clear-cache',function(){
     Artisan::call('route:clear');

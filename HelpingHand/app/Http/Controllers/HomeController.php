@@ -23,51 +23,53 @@ class HomeController extends Controller
             return $next($request);
         });
     }
-    public function index()
+    public function back_index()
     {
-        if (Auth::check()) {        
-        $client = EmployeeDetail::with(['images', 'subscription'])->orderby('expires_at', 'asc')->get();
-        $now = Carbon::now();
-        $client = $client->map(function ($item) use ($now) {
-            $expiresAt = Carbon::parse($item->expires_at);
-            if ($expiresAt > $now) {
+        if (Auth::check()) {
+            $client = EmployeeDetail::with(['images', 'subscription'])->orderby('expires_at', 'asc')->get();
+            $now = Carbon::now();
+            $client = $client->map(function ($item) use ($now) {
+                $expiresAt = Carbon::parse($item->expires_at);
+                if ($expiresAt > $now) {
 
-                $item['remaining_days'] = $expiresAt->diffInDays($now);
-            } else {
+                    $item['remaining_days'] = $expiresAt->diffInDays($now);
+                } else {
 
-                $item['remaining_days'] = 0;
+                    $item['remaining_days'] = 0;
+                }
+
+
+                return $item;
+            });
+
+            $user = $this->user;
+            // dd($user);
+            if ($user->hasRole('SuperAdmin')) {
+                $job_list = Job::where('status', 1)->with('questions', 'client')->orderBy('created_at', 'desc')->get();
+            } elseif ($user->hasRole('ClientAdmin')) {
+                $job_list = Job::where('status', 1)->where('org_id', $user->org_id)->with('questions', 'client')->orderBy('created_at', 'desc')->get();
+            } elseif ($user->hasRole('HIMSubUser')) {
+                return $this->sub_user_index();
+            } elseif ($user->hasRole('StageUser')) {
+                return $this->client_user_index();
             }
 
 
-            return $item;
-        });
+            // dd($user->roles());
+            // $job_list->each(function ($job) {
+            //     // Retrieve the stages associated with questions for this job
+            //     $stages = $job->questions->pluck('pivot.stage_id')->unique()->values()->toArray();
 
-        $user = $this->user;
-        // dd($user);
-        if ($user->hasRole('SuperAdmin')) {
-            $job_list = Job::where('status', 1)->with('questions', 'client')->orderBy('created_at', 'desc')->get();
-        } elseif ($user->hasRole('ClientAdmin')) {
-            $job_list = Job::where('status', 1)->where('org_id', $user->org_id)->with('questions', 'client')->orderBy('created_at', 'desc')->get();
-        } elseif ($user->hasRole('HIMSubUser')) {
-            return $this->sub_user_index();
-        } elseif ($user->hasRole('StageUser')) {
-            return $this->client_user_index();
+            //     // Add the $stages array as a new column 'stages' in the job
+            //     $job->stages = $stages;
+            // });
+            return view('pages.index', compact('client'));
         }
-    
-
-
-        $job_list->each(function ($job) {
-            // Retrieve the stages associated with questions for this job
-            $stages = $job->questions->pluck('pivot.stage_id')->unique()->values()->toArray();
-
-            // Add the $stages array as a new column 'stages' in the job
-            $job->stages = $stages;
-        });
-        return view('pages.index', compact('client', 'job_list'));
-    }else{
-        // dd('okay');
-        return view('frontend.layouts.master');
     }
+    public function index()
+    {
+
+        return view('frontend.index');
     }
     public function sub_user_index()
     {
@@ -100,7 +102,7 @@ class HomeController extends Controller
                 ->select('job_applicant.*')
                 ->where('job_applicant.stage_id', 1)
                 ->where('job_applicant.stage_complete', 0)
-                ->where('job_applicant.current_complete',0)
+                ->where('job_applicant.current_complete', 0)
                 ->get();
             $ids = array_merge($ids, $job_applicant1->pluck('id')->toArray());
         }
@@ -111,9 +113,9 @@ class HomeController extends Controller
                 ->select('job_applicant.*')
                 ->where('job_applicant.stage_id', 2)
                 ->where('job_applicant.stage_complete', 0)
-                ->where('job_applicant.current_complete',0)
+                ->where('job_applicant.current_complete', 0)
                 ->get();
-                $ids = array_merge($ids, $job_applicant2->pluck('id')->toArray());
+            $ids = array_merge($ids, $job_applicant2->pluck('id')->toArray());
         }
         if ($user->hasPermissionto('Edit-Stage3')) {
             $job_applicant3 = $client->jobs()
@@ -122,9 +124,9 @@ class HomeController extends Controller
                 ->select('job_applicant.*')
                 ->where('job_applicant.stage_id', 3)
                 ->where('job_applicant.stage_complete', 0)
-                ->where('job_applicant.current_complete',0)
+                ->where('job_applicant.current_complete', 0)
                 ->get();
-                $ids = array_merge($ids, $job_applicant3->pluck('id')->toArray());
+            $ids = array_merge($ids, $job_applicant3->pluck('id')->toArray());
         }
         if ($user->hasPermissionto('Edit-Stage4')) {
             $job_applicant4 = $client->jobs()
@@ -133,9 +135,9 @@ class HomeController extends Controller
                 ->select('job_applicant.*')
                 ->where('job_applicant.stage_id', 4)
                 ->where('job_applicant.stage_complete', 0)
-                ->where('job_applicant.current_complete',0)
+                ->where('job_applicant.current_complete', 0)
                 ->get();
-                // $ids = array_merge($ids, $job_applicant4->pluck('id')->toArray());
+            // $ids = array_merge($ids, $job_applicant4->pluck('id')->toArray());
         }
         if ($user->hasPermissionto('Edit-Stage5')) {
             $job_applicant4 = $client->jobs()
@@ -144,12 +146,12 @@ class HomeController extends Controller
                 ->select('job_applicant.*')
                 ->where('job_applicant.stage_id', 5)
                 ->where('job_applicant.stage_complete', 0)
-                ->where('job_applicant.current_complete',0)
+                ->where('job_applicant.current_complete', 0)
                 ->get();
-                $ids = array_merge($ids, $job_applicant4->pluck('id')->toArray());
+            $ids = array_merge($ids, $job_applicant4->pluck('id')->toArray());
         }
 
-        $job_applicant_list = JobApplicant::whereIn('id',$ids)->with('job','candidate','job_applicant_stage')->get();
+        $job_applicant_list = JobApplicant::whereIn('id', $ids)->with('job', 'candidate', 'job_applicant_stage')->get();
 
 
         // dd($ids, $job_applicant_list);
